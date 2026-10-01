@@ -127,3 +127,40 @@ Na platformie **NVIDIA Jetson** testuję Ollama, Open WebUI i lokalne modele LLM
 
 ## Zasady bezpieczeństwa repozytorium
 Nie publikuję haseł, tokenów, kluczy API, prywatnych kluczy SSH, publicznych adresów administracyjnych, danych klientów ani kompletnych backupów urządzeń.
+
+
+## Środowisko w praktyce
+
+Poniższe zrzuty przedstawiają działające elementy mojego środowiska laboratoryjnego. Dane infrastruktury zostały zanonimizowane przed publikacją.
+
+### Proxmox VE
+
+![Proxmox cluster overview](assets/01_proxmox_cluster_overview.png)
+
+![Proxmox cluster resources](assets/02_proxmox_cluster_resources.png)
+
+### Suricata / EveBox
+
+![EveBox flows](assets/03_evebox_flows.png)
+
+![EveBox alerts](assets/04_evebox_alerts.png)
+
+### Zabbix
+
+![Zabbix hosts](assets/05_zabbix_hosts.png)
+
+![Zabbix monitoring](assets/06_zabbix_monitoring.png)
+
+![Zabbix server dashboard](assets/09_zabbix_server_dashboard.png)
+
+### Wazuh
+
+![Wazuh endpoints](assets/07_wazuh_endpoints.png)
+
+### LAB Dashboard
+
+![LAB dashboard](assets/08_lab_dashboard.png)
+
+### n8n
+
+![n8n workflow](assets/10_n8n_workflow.png)
