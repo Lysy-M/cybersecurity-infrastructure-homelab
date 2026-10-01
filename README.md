@@ -1,5 +1,11 @@
 # Cybersecurity & Infrastructure Homelab
 
+## Architektura środowiska
+
+![Cybersecurity & Infrastructure Homelab](assets/homelab_architecture_public.png)
+
+> Diagram przedstawia zanonimizowany widok mojego środowiska laboratoryjnego. Adresacja IP, hostnames i dane umożliwiające identyfikację infrastruktury zostały usunięte.
+
 Autorskie środowisko laboratoryjne do praktycznej administracji systemami, wirtualizacji, monitoringu, backupu, automatyzacji i bezpieczeństwa.
 
 > Repozytorium opisuje architekturę i zakres projektu. Celowo nie zawiera sekretów, danych uwierzytelniających ani informacji umożliwiających zdalny dostęp do infrastruktury.
