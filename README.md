@@ -125,6 +125,25 @@ Na platformie **NVIDIA Jetson** testuję Ollama, Open WebUI i lokalne modele LLM
 7. Weryfikacja backupu przed zmianami o podwyższonym ryzyku.
 8. Wdrożenie poprawki i ponowny test.
 
+## Case Studies
+
+### Zabbix unavailable after system restart
+
+Praktyczny przykład diagnostyki awarii, w której frontend monitoringu przestał być dostępny po restarcie serwera. Analiza wykazała problem z konfiguracją adresacji sieciowej, a nie z samym Zabbixem.
+
+Opis obejmuje:
+
+- analizę objawów,
+- diagnostykę warstwy sieciowej,
+- wykorzystanie niezależnego dostępu przez Tailscale,
+- identyfikację przyczyny,
+- weryfikację usług po naprawie,
+- działania zapobiegawcze.
+
+➡️ [Czytaj case study](docs/case-studies/zabbix-network-recovery.md)
+
+---
+
 ## Zasady bezpieczeństwa repozytorium
 Nie publikuję haseł, tokenów, kluczy API, prywatnych kluczy SSH, publicznych adresów administracyjnych, danych klientów ani kompletnych backupów urządzeń.
 
