@@ -144,6 +144,25 @@ Opis obejmuje:
 
 ---
 
+
+### n8n / PostgreSQL recovery after PBS restore
+
+Case study opisujący sytuację, w której poprawnie wykonany restore z Proxmox Backup Server odtworzył ten sam wadliwy stan aplikacji.
+
+Opis obejmuje:
+
+- rozdzielenie problemu infrastruktury od stanu aplikacji,
+- diagnostykę PostgreSQL i n8n,
+- zachowanie persistent data,
+- odbudowę warstwy Docker / Compose,
+- niezależną weryfikację bazy i GUI,
+- analizę zewnętrznych zależności workflow,
+- wnioski dotyczące jakości restore pointów.
+
+➡️ [Czytaj case study](docs/case-studies/n8n-postgresql-pbs-recovery.md)
+
+---
+
 ## Zasady bezpieczeństwa repozytorium
 Nie publikuję haseł, tokenów, kluczy API, prywatnych kluczy SSH, publicznych adresów administracyjnych, danych klientów ani kompletnych backupów urządzeń.
 
