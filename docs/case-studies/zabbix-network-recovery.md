@@ -1,85 +1,86 @@
 # Case Study: Zabbix unavailable after system restart
 
-## Incident summary
+## Summary
 
 After a restart of the Zabbix server, the monitoring frontend was no longer reachable through its expected management address.
 
-The server itself remained operational and remote administrative access through Tailscale was still available.
+The server itself remained operational and remote SSH access through Tailscale was still available.
 
-The root cause was an incorrect persistent network configuration: the primary Ethernet interface used DHCP instead of the expected fixed management address.
+The investigation showed that the problem was not caused by Zabbix. The primary Ethernet interface had returned with a DHCP-assigned address instead of the expected persistent management address.
+
+## Impact
+
+- Zabbix frontend unavailable at the expected LAN address
+- monitoring access disrupted
+- dependent systems could no longer reach the server at its normal management address
+- remote administration remained available through Tailscale
+
+No application rebuild or backup restore was required.
 
 ## Environment
 
 Relevant components:
 
+- Linux
 - Zabbix Server
-- Linux operating system
-- Ethernet LAN interface
+- Zabbix Agent
+- Ethernet LAN
 - private management network
 - Tailscale
 - monitored Linux and Windows hosts
 
-All infrastructure-specific IP addresses and host identifiers have been removed from this public case study.
+Infrastructure-specific addresses and host identifiers have been removed.
 
 ## Symptoms
 
-After the restart:
+After reboot:
 
 - the normal Zabbix frontend address stopped responding,
-- SSH access through Tailscale still worked,
+- SSH through Tailscale still worked,
 - the operating system was running,
-- the application itself was not initially confirmed as the source of the outage.
+- there was no immediate evidence that Zabbix itself had failed.
 
-## Initial hypotheses
+## Investigation
 
-Possible causes included:
+The investigation started at the network layer before making application changes.
 
-1. Zabbix service failure
-2. web server failure
-3. firewall filtering
-4. routing problems
-5. interface configuration change
-6. loss of the expected management IP address
+The active Ethernet interface had received an unexpected DHCP address.
 
-## Diagnostics
-
-The investigation started with the network layer.
-
-The active Ethernet interface had received a different address from DHCP.
-
-The persistent interface configuration showed:
+The persistent interface configuration contained:
 
     BOOTPROTO=dhcp
 
-This explained why the server was no longer reachable at the expected management address after reboot.
+This explained why the server was operational but no longer reachable at the address expected by administrators and dependent services.
 
-Because Tailscale used an independent management path, SSH access to the server remained available and troubleshooting could continue remotely.
+Because Tailscale provided an independent management path, the host could still be diagnosed remotely.
 
-## Root cause
+## Root Cause
 
-The Ethernet interface was persistently configured for DHCP even though the infrastructure expected the Zabbix server to retain a fixed management address.
+The Ethernet interface was persistently configured for DHCP even though the Zabbix server was expected to retain a fixed management address.
 
 After reboot, DHCP assigned a different address.
 
-The host and Zabbix services were operational, but administrators and dependent systems were still attempting to communicate with the previous management address.
+The application stack remained operational, but the server was no longer available at the expected LAN address.
 
 ## Resolution
 
-The expected management address was restored and connectivity was verified.
+The expected management address was restored.
 
-The following areas were checked:
+The persistent network configuration was corrected so that the required address would survive future reboots.
+
+## Validation
+
+After the correction, the following areas were verified:
 
 - SSH connectivity
+- network interface configuration
 - HTTP / Zabbix frontend
-- Zabbix agent
-- Zabbix server communication
-- network interface state
+- Zabbix Agent
+- Zabbix Server communication
 
-The application stack itself was operational.
+The frontend became reachable again without rebuilding Zabbix.
 
-The actual failure domain was the persistent network configuration.
-
-## Troubleshooting workflow
+## Troubleshooting Flow
 
     Zabbix frontend unavailable
               |
@@ -87,10 +88,10 @@ The actual failure domain was the persistent network configuration.
     Verify independent remote access
               |
               v
-    SSH through Tailscale operational
+    SSH through Tailscale works
               |
               v
-    Inspect network interfaces
+    Inspect network interface
               |
               v
     Unexpected DHCP address detected
@@ -105,61 +106,34 @@ The actual failure domain was the persistent network configuration.
     Restore expected management address
               |
               v
-    Verify Zabbix services
-              |
-              v
-    Service restored
+    Validate Zabbix services
 
-## What this incident demonstrated
+## Preventive Actions
 
-The incident required troubleshooting across several layers:
+- maintain persistent addressing for infrastructure servers,
+- document expected management interface configuration,
+- validate networking after reboot,
+- retain an independent remote administration path,
+- monitor management interface availability.
 
-- Linux networking
-- IP addressing
-- remote administration
-- service availability
-- Zabbix communication
-- dependency analysis
+## Lessons Learned
 
-It also demonstrated the value of maintaining an independent management path.
+### Start at the lowest relevant layer
 
-Tailscale allowed the server to be diagnosed remotely even though its normal LAN management address had changed.
+An unavailable application frontend does not necessarily indicate an application failure.
 
-## Preventive actions
+Networking, addressing, routing and listening services should be verified before changing application configuration.
 
-- use persistent addressing for infrastructure servers,
-- verify interface configuration after system changes,
-- maintain an independent remote administration path,
-- monitor management interface availability,
-- document expected interface configuration,
-- perform network and service validation after reboot.
+### Independent management access reduces recovery time
 
-## Lessons learned
+Tailscale prevented the network configuration issue from becoming a complete remote lockout.
 
-### Frontend unavailable does not necessarily mean application failure
+### Persistent configuration must be tested after reboot
 
-The application can remain healthy while the host is unavailable at the address expected by administrators and dependent services.
-
-### Start troubleshooting from the lowest relevant layer
-
-Before changing Zabbix configuration, verify:
-
-- interface state,
-- IP addressing,
-- routing,
-- listening ports,
-- service status.
-
-### Independent remote access is valuable
-
-Tailscale provided an alternative path to the server and prevented the network configuration problem from becoming a complete remote lockout.
-
-### Reboot testing matters
-
-A live configuration may work correctly while the persistent configuration contains an error that only becomes visible after restart.
+A working live configuration is not sufficient if the persistent configuration differs from the intended state.
 
 ## Result
 
-The Zabbix server was restored without rebuilding the application or restoring the virtual machine from backup.
+The Zabbix server was restored to normal operation without reinstalling the application or restoring the system from backup.
 
-The investigation correctly identified the failure domain as network configuration rather than the Zabbix application stack.
+The failure domain was correctly identified as network configuration rather than the Zabbix application stack.
