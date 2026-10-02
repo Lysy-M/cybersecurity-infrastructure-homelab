@@ -202,3 +202,7 @@ Poniższe zrzuty przedstawiają działające elementy mojego środowiska laborat
 ### n8n
 
 ![n8n workflow](assets/10_n8n_workflow.png)
+
+### Proxmox VE cluster — operational view
+
+![Proxmox cluster summary](assets/proxmox_cluster_summary_anonymized.png)
