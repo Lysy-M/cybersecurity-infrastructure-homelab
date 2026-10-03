@@ -206,3 +206,29 @@ Poniższe zrzuty przedstawiają działające elementy mojego środowiska laborat
 ### Proxmox VE cluster — operational view
 
 ![Proxmox cluster summary](assets/proxmox_cluster_summary_anonymized.png)
+
+## AI-SOC Incident Analysis & Remediation Report
+
+**Automatyczny raport AI-SOC generowany w środowisku laboratoryjnym na NVIDIA Jetson.**
+
+System analizuje zdarzenia bezpieczeństwa pochodzące m.in. z Suricaty oraz wyników skanowania i na ich podstawie przygotowuje ocenę stanu infrastruktury, listę obserwacji oraz proponowane działania diagnostyczne i naprawcze.
+
+W przedstawionym przypadku AI wykryło m.in. alerty dotyczące możliwego SSDP amplification scan, nieprawidłowych pakietów IPv4/AF-PACKET oraz usług wymagających dodatkowej weryfikacji.
+
+Raport zawiera również konkretne propozycje dalszej diagnostyki przy użyciu m.in.:
+
+- `journalctl`
+- `nmap`
+- `ss`
+- `ufw`
+- analizy logów Suricaty
+
+### Mechanizm bezpieczeństwa
+
+AI nie wykonuje automatycznie proponowanych zmian. Działania wymagające ingerencji administratora są oznaczane odpowiednim poziomem ryzyka i pozostają do ręcznej akceptacji.
+
+Raport demonstruje wykorzystanie lokalnego AI jako warstwy wspierającej analizę incydentów, korelację obserwacji oraz przygotowanie planu remediation dla administratora.
+
+**Przykładowy raport został zanonimizowany przed publikacją — adresacja IP i dane identyfikujące środowisko zostały zastąpione wartościami dokumentacyjnymi.**
+
+[Zobacz przykładowy raport AI-SOC](docs/ai-soc/AI-SOC_Incident_Analysis_Remediation_Report.html)

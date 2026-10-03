@@ -1,0 +1,309 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><title>AI-SOC Jetson — raport zanonimizowany</title><style>body{font-family:Arial,sans-serif;max-width:1100px;margin:40px auto;padding:0 24px;color:#1f2937;background:#fff}table{border-collapse:collapse;width:100%}th,td{padding:8px;border:1px solid #cbd5e1;vertical-align:top}pre{white-space:pre-wrap;word-break:break-word;background:#f8fafc;padding:12px;border-radius:8px}h2,h3,h4{color:#0f172a}</style></head><body>
+    <h2>[AI-SOC] INCIDENT=OBSERWUJ | POSTURE=HIGH — 48 zdarzeń, 34 obserwacji, 12 akcji</h2>
+    <p><b>Poziom powiadomienia:</b> MEDIUM</p>
+    <p><b>Auto-wykonanie komend:</b> NIE. Wymagana decyzja administratora.</p>
+
+    <h3>Wynik AI</h3>
+    <pre>OCENA: Stan systemu jest stabilny, ale występują niektóre sygnały podejrzanych zdarzeń.
+UZASADNIENIE: Wystąpiły sygnały podejrzanych zdarzeń na urządzeniu IDS (IDS-pi), w tym Suricata: ET DOS Possible SSDP Amplification Scan in Progress x172 i Suricata: SURICATA IPv4 truncated packet x13.
+NASTĘPNY KROK: Przeanalizuj logi systemu, aby uzyskać więcej informacji o zdarzeniach i określić przyczynę sygnału.</pre>
+
+    <h3>Zdarzenia</h3>
+    <table border="1" cellpadding="6" cellspacing="0">
+      <tr><th>Severity</th><th>Źródło</th><th>Host</th><th>Port</th><th>Problem</th></tr>
+      
+        <tr>
+          <td>HIGH</td>
+          <td>suricata_fast</td>
+          <td>ids-pi</td>
+          <td></td>
+          <td>Suricata: ET DOS Possible SSDP Amplification Scan in Progress x172</td>
+        </tr>
+        
+        <tr>
+          <td>HIGH</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.16</td>
+          <td></td>
+          <td>Gateway ma dużo usług widocznych w LAN</td>
+        </tr>
+        
+        <tr>
+          <td>HIGH</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.163</td>
+          <td></td>
+          <td>Nuclei: Zabbix Default Login (high)</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>suricata_fast</td>
+          <td>ids-pi</td>
+          <td></td>
+          <td>Suricata: SURICATA IPv4 truncated packet x13</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>suricata_fast</td>
+          <td>ids-pi</td>
+          <td></td>
+          <td>Suricata: SURICATA AF-PACKET truncated packet x13</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.247</td>
+          <td>4000</td>
+          <td>Jetson wystawia port 4000/tcp</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.107</td>
+          <td></td>
+          <td>Host 203.0.113.107 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.148</td>
+          <td></td>
+          <td>Host 203.0.113.148 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.148</td>
+          <td></td>
+          <td>Host 203.0.113.148 ma usługę 8080/http</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.150</td>
+          <td></td>
+          <td>Host 203.0.113.150 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.150</td>
+          <td></td>
+          <td>Host 203.0.113.150 ma usługę 80/http</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.155</td>
+          <td></td>
+          <td>Host 203.0.113.155 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.163</td>
+          <td></td>
+          <td>Host 203.0.113.163 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.163</td>
+          <td></td>
+          <td>Host 203.0.113.163 ma usługę 80/http</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.18</td>
+          <td></td>
+          <td>Host 198.51.100.18 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.180</td>
+          <td></td>
+          <td>Host 203.0.113.180 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.180</td>
+          <td></td>
+          <td>Host 203.0.113.180 ma usługę 3128/http</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.189</td>
+          <td></td>
+          <td>Host 203.0.113.189 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.20</td>
+          <td></td>
+          <td>Host 203.0.113.20 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.200</td>
+          <td></td>
+          <td>Host 203.0.113.200 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.201</td>
+          <td></td>
+          <td>Host 203.0.113.201 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.201</td>
+          <td></td>
+          <td>Host 203.0.113.201 ma usługę 3128/http</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.205</td>
+          <td></td>
+          <td>Host 203.0.113.205 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.205</td>
+          <td></td>
+          <td>Host 203.0.113.205 ma usługę 80/http</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.205</td>
+          <td></td>
+          <td>Host 203.0.113.205 ma usługę 8080/http-proxy</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.206</td>
+          <td></td>
+          <td>Host 203.0.113.206 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.206</td>
+          <td></td>
+          <td>Host 203.0.113.206 ma usługę 443/ssl/https</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.215</td>
+          <td></td>
+          <td>Host 203.0.113.215 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.222</td>
+          <td></td>
+          <td>Host 203.0.113.222 ma usługę 22/ssh</td>
+        </tr>
+        
+        <tr>
+          <td>MEDIUM</td>
+          <td>recommended_actions</td>
+          <td>203.0.113.222</td>
+          <td></td>
+          <td>Host 203.0.113.222 ma usługę 443/ssl/https</td>
+        </tr>
+        
+    </table>
+
+    <h3>Proponowane komendy</h3>
+    
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Pokazuje ostatnie alerty Suricaty na IDS.</p>
+        <pre>ssh -i /home/jetson/.ssh/jetson_ids_soc admin@198.51.100.101 "sudo -n tail -n 80 /var/log/suricata/fast.log"</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Sprawdza ostatnie logi usługi Suricata.</p>
+        <pre>ssh -i /home/jetson/.ssh/jetson_ids_soc admin@198.51.100.101 "sudo -n journalctl -u suricata -n 80 --no-pager"</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Potwierdza usługi widoczne na gatewayu/Sophosie.</p>
+        <pre>nmap -sV -Pn -p 22,25,53,443,3128 203.0.113.16</pre>
+        
+        <h4>MANUAL | ryzyko: medium</h4>
+        <p>Ręczna zmiana w Sophos. Nie wykonujemy jej automatycznie z Jetsona.</p>
+        <pre>Zaloguj się do Sophos GUI i ogranicz administrację/proxy tylko do hostów admina/VPN.</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Rozpoznaje usługi i wersje z perspektywy Jetsona. Diagnostyka sieciowa.</p>
+        <pre>nmap -sV -Pn 203.0.113.163</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Sprawdza, jaki proces na Jetsonie słucha na porcie 4000.</p>
+        <pre>sudo ss -lntup | grep -E ':4000\b|PID'</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Pokazuje aktualne reguły UFW przed zmianami.</p>
+        <pre>sudo ufw status numbered verbose</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Rozpoznaje usługi i wersje z perspektywy Jetsona. Diagnostyka sieciowa.</p>
+        <pre>nmap -sV -Pn 203.0.113.107</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Rozpoznaje usługi i wersje z perspektywy Jetsona. Diagnostyka sieciowa.</p>
+        <pre>nmap -sV -Pn 203.0.113.148</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Rozpoznaje usługi i wersje z perspektywy Jetsona. Diagnostyka sieciowa.</p>
+        <pre>nmap -sV -Pn 203.0.113.150</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Rozpoznaje usługi i wersje z perspektywy Jetsona. Diagnostyka sieciowa.</p>
+        <pre>nmap -sV -Pn 203.0.113.155</pre>
+        
+        <h4>DIAGNOSTIC | ryzyko: low</h4>
+        <p>Rozpoznaje usługi i wersje z perspektywy Jetsona. Diagnostyka sieciowa.</p>
+        <pre>nmap -sV -Pn 203.0.113.18</pre>
+        
+
+    <p><b>Raport na Jetsonie:</b> /opt/pentest-stack/scans/ai/remediation_advice.md</p>
+    </body></html>
