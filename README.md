@@ -4,7 +4,7 @@
 
 ![Cybersecurity & Infrastructure Homelab](assets/homelab_architecture_public.png)
 
-> Diagram przedstawia zanonimizowany widok mojego środowiska laboratoryjnego. Adresacja IP, hostnames i dane umożliwiające identyfikację infrastruktury zostały usunięte.
+> Diagram przedstawia zanonimizowany widok mojego środowiska laboratoryjnego. Rzeczywista adresacja IP, dane dostępowe i wrażliwe identyfikatory infrastruktury zostały usunięte lub zastąpione.
 
 Autorskie środowisko laboratoryjne do praktycznej administracji systemami, wirtualizacji, monitoringu, backupu, automatyzacji i bezpieczeństwa.
 
@@ -72,6 +72,12 @@ flowchart TB
 - kontenery i usługi Docker,
 - testowanie aktualizacji i zależności między usługami.
 
+## Windows Server / Active Directory
+
+Rozwijam również wydzielone środowisko Windows Server 2019 z Active Directory, DNS, LAPS oraz stacjami Windows uruchamianymi na VirtualBox i Proxmox VE.
+
+➡️ [Windows Server / Active Directory / VirtualBox Lab](https://github.com/Lysy-M/windows-server-ad-virtualbox-lab)
+
 ## Monitoring — Zabbix
 - dostępność hostów,
 - stan usług,
@@ -97,6 +103,7 @@ flowchart TB
 ## Backup i odtwarzanie
 - **Proxmox Backup Server** — backup środowiska Proxmox,
 - **UrBackup** — kopie systemów i danych,
+- **Veeam** — obecnie wdrażany dla środowiska Windows,
 - testy scenariuszy awarii i przywracania.
 
 ## Sieć i dostęp
@@ -164,7 +171,7 @@ Opis obejmuje:
 ---
 
 ## Zasady bezpieczeństwa repozytorium
-Nie publikuję haseł, tokenów, kluczy API, prywatnych kluczy SSH, publicznych adresów administracyjnych, danych klientów ani kompletnych backupów urządzeń.
+Nie publikuję haseł, tokenów, kluczy API, prywatnych kluczy SSH, rzeczywistych adresów zarządzających, danych klientów ani kompletnych backupów urządzeń.
 
 
 ## Środowisko w praktyce
